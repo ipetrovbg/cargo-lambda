@@ -1,6 +1,6 @@
 {
   "name": "cargo-lambda-serverless",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Serverless plugin for Cargo Lambda",
   "main": "index.js",
   "scripts": {},

@@ -7,6 +7,9 @@ class CargoLambdaServerless {
 	constructor(serverless, _, { log, progress }) {
 		this.functions = serverless.service.functions;
 		this.log = log;
+		this.serverless = serverless;
+		this.log( 'PATH:' +  )
+
 
 
 		progress.create({
@@ -32,13 +35,14 @@ class CargoLambdaServerless {
 	zipFunction = (func) => {
 		const funcObject = this.functions[func];
 		const log = this.log;
-		const output = fs.createWriteStream(funcObject.package.artifact);
+		const artifact = path.posix.join(this.serverless.config.servicePath, '.serverless', func + '.zip')
+		const output = fs.createWriteStream(artifact);
 		const archive = archiver('zip', {
 			zlib: { level: 9 }
 		});
 
 		output.on('close', function() {
-			log.success(funcObject.package.artifact, archive.pointer(), 'total bytes')
+			log.success(artifact, archive.pointer(), 'total bytes')
 		});
 
 		output.on('end', function() {
@@ -60,7 +64,7 @@ class CargoLambdaServerless {
 
 		archive.pipe(output);
 
-		const file = __dirname + `/${funcObject.cargo.path}`;
+		const file = this.serverless.config.servicePath + `/${funcObject.cargo.path}`;
 		archive.append(fs.createReadStream(file), { name: 'bootstrap' });
 		archive.finalize();
 	}
