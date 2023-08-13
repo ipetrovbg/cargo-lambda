@@ -10,14 +10,14 @@ npm i cargo-lambda --save-dev
 
 Add the plugin to your `serverless.yml`
 
-```yml
+```yaml
 plugins:
   - cargo-lambda
 ```
 
 ### Configure
 
-```yml
+```yaml
 functions:
 	hello:
 		handler: bootstrap
@@ -32,35 +32,32 @@ functions:
         - 'target/lambda/hello/bootstrap'
 ```
 
-*Cargo.toml*
+**Cargo.toml**
 
 ```toml
-...
 [[bin]]
 name = "hello"
 path = "src/hello.rs"
-...
 ```
 
-For your *GitHub Action* you need to just build the functions with `cargo lambda build --release`,
-the plugin then will pickup those binaries and will package them in the root level, so that
-when AWS Lambda looks for `bootstrap` binaries will find your corresponding functions
+For your **GitHub Action** you need to just build the functions with `cargo lambda build --release`,
+the plugin then will pickup those binaries and will package them at the root level, so that
+when AWS Lambda looks for `bootstrap` binaries will find your corresponding functions.
 
-```yml
+```yaml
 - name: Cache cargo registry
-uses: actions/cache@v3
+	uses: actions/cache@v3
 	continue-on-error: false
-	with:
-		path: |
-			~/.cargo/registry
-			~/.cargo/git
-		key: cargo-build-cache
+		with:
+			path: |
+				~/.cargo/registry
+				~/.cargo/git
+			key: cargo-build-cache
 
 - name: Release lambda
 	run: |
 		pip install cargo-lambda
 		cargo lambda build --release
-
 ```
 
 For the structure of your `hello` rust function you should follow the documentation of
