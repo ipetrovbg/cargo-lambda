@@ -1,0 +1,25 @@
+{
+  "name": "cargo-lambda",
+  "version": "0.0.1",
+  "description": "Serverless plugin for Cargo Lambda",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "serverless",
+    "plugin",
+    "npm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipetrovbg/cargo-lambda.git"
+  },
+  "author": "Petar Petrov <ipetrovbg@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ipetrovbg/cargo-lambda/issues"
+  },
+  "homepage": "https://github.com/ipetrovbg/cargo-lambda#readme",
+  "dependencies": {
+    "archiver": "^5.3.1"
+  }
+}
