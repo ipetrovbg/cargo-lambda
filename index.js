@@ -8,9 +8,6 @@ class CargoLambdaServerless {
 		this.functions = serverless.service.functions;
 		this.log = log;
 		this.serverless = serverless;
-		this.log( 'PATH:' +  )
-
-
 
 		progress.create({
 			message: 'Changing packaging path',
