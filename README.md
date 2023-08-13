@@ -20,16 +20,16 @@ plugins:
 ```yaml
 functions:
   hello:
-  handler: bootstrap
-  runtime: 'provided.al2'
-  cargo:
-     path: 'target/lambda/hello/bootstrap'
-  package:
-     individually: true
-     exclude:
-       - '**/**'
-     include:
-       - 'target/lambda/hello/bootstrap'
+    handler: bootstrap
+    runtime: 'provided.al2'
+    cargo:
+      path: 'target/lambda/hello/bootstrap'
+    package:
+      individually: true
+      exclude:
+        - '**/**'
+      include:
+        - 'target/lambda/hello/bootstrap'
 ```
 
 **Cargo.toml**
