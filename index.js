@@ -3,7 +3,7 @@ const path = require('path');
 const archiver = require('archiver');
 const fs = require('fs');
 
-class CargoLambda {
+class CargoLambdaServerless {
 	constructor(serverless, _, { log, progress }) {
 		this.functions = serverless.service.functions;
 		this.log = log;
@@ -66,4 +66,4 @@ class CargoLambda {
 	}
 }
 
-module.exports = CargoLambda;
+module.exports = CargoLambdaServerless;

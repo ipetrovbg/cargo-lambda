@@ -1,18 +1,18 @@
-# cargo-lambda
+# cargo-lambda-serverless
 Serverless plugin for [Cargo Lambda](https://www.cargo-lambda.info/)
 
 
 ### Install
 
 ```shell
-npm i cargo-lambda --save-dev
+npm i cargo-lambda-serverless --save-dev
 ```
 
 Add the plugin to your `serverless.yml`
 
 ```yaml
 plugins:
-  - cargo-lambda
+  - cargo-lambda-serverless
 ```
 
 ### Configure
