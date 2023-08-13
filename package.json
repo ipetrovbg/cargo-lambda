@@ -7,7 +7,12 @@
   "keywords": [
     "serverless",
     "plugin",
-    "npm"
+    "npm",
+    "rust",
+    "cargo",
+    "cargo-lambda",
+    "aws",
+    "lambda"
   ],
   "repository": {
     "type": "git",
