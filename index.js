@@ -4,20 +4,17 @@ const archiver = require('archiver');
 const fs = require('fs');
 
 class CargoLambda {
-	constructor(serverless, options, { log, progress }) {
-		this.options = options;
-		this.cwd = process.cwd();
+	constructor(serverless, _, { log, progress }) {
 		this.functions = serverless.service.functions;
-		this.serverless = serverless;
 		this.log = log;
 
 
-		const cargoProgress = progress.create({
+		progress.create({
 			message: 'Changing packaging path',
 			name: 'cargo-lambda',
 		});
 
-		log.info('cargo-lambda')
+		log.notice('cargo-lambda')
 
 		this.hooks = {
 			'after:package:finalize': this.zip,
