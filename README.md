@@ -46,18 +46,18 @@ when AWS Lambda looks for `bootstrap` binaries will find your corresponding func
 
 ```yaml
 - name: Cache cargo registry
-	uses: actions/cache@v3
-	continue-on-error: false
-		with:
-			path: |
-				~/.cargo/registry
-				~/.cargo/git
-			key: cargo-build-cache
+  uses: actions/cache@v3
+  continue-on-error: false
+    with:
+      path: |
+        ~/.cargo/registry
+        ~/.cargo/git
+      key: cargo-build-cache
 
 - name: Release lambda
-	run: |
-		pip install cargo-lambda
-		cargo lambda build --release
+  run: |
+     pip install cargo-lambda
+     cargo lambda build --release
 ```
 
 For the structure of your `hello` rust function you should follow the documentation of
